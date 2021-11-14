@@ -19,9 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>【mysql】MySQL创建用户 - timcui&#39;s-Blog</title>
+  <title>【liunx】centos防火墙 - timcui&#39;s-Blog</title>
   
-    <meta name="keywords" content="MySQL">
+    <meta name="keywords" content="fireawall,centos,Linux">
   
 
   
@@ -335,7 +335,7 @@
     
     
       <h1 class="title">
-        【mysql】MySQL创建用户
+        【liunx】centos防火墙
       </h1>
       <div class='new-meta-box'>
         
@@ -355,7 +355,7 @@
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Linux/">Linux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/MySQL/">MySQL</a>
+      <a class="category-link" href="/categories/Linux/">Linux</a>
     </a>
   </div>
 
@@ -377,7 +377,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="【mysql】MySQL创建用户" data-path="/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/">
+      <div id="lc-pv" data-title="【liunx】centos防火墙" data-path="/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -394,8 +394,8 @@
 
 
   
-  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 一. 创建用户</span></span><br><span class="line"></span><br><span class="line">命令:CREATE USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">username：你将创建的用户名</span><br><span class="line">host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%</span><br><span class="line">password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</span><br><span class="line">例子：</span><br><span class="line">CREATE USER <span class="string">&#x27;dog&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;192.168.1.101_&#x27;</span> IDENDIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 二. 授权:</span></span><br><span class="line"></span><br><span class="line">命令:GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span></span><br><span class="line">说明:</span><br><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br><span class="line">例子:</span><br><span class="line">GRANT SELECT, INSERT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON maindataplus.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:</span><br><span class="line">GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三.设置与更改用户密码</span></span><br><span class="line"></span><br><span class="line">命令:SET PASSWORD FOR <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> = PASSWORD(<span class="string">&#x27;newpassword&#x27;</span>);</span><br><span class="line"></span><br><span class="line">如果是当前登陆用户用:</span><br><span class="line">SET PASSWORD = PASSWORD(<span class="string">&quot;newpassword&quot;</span>);</span><br><span class="line">例子:</span><br><span class="line">SET PASSWORD FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> = PASSWORD(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 四. 撤销用户权限</span></span><br><span class="line">命令:REVOKE privilege ON databasename.tablename FROM <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br><span class="line">说明:</span><br><span class="line">privilege, databasename, tablename：同授权部分</span><br><span class="line"></span><br><span class="line">例子:</span><br><span class="line">REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">假如你在给用户<span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>授权的时候是这样的（或类似的）：GRANT SELECT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>，则在使用REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令并不能撤销该用户对<span class="built_in">test</span>数据库中user表的SELECT 操作。相反，如果授权使用的是GRANT SELECT ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;则REVOKE SELECT ON test.user FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令也不能撤销该用户对<span class="built_in">test</span>数据库中user表的Select权限。</span><br><span class="line"></span><br><span class="line">具体信息可以用命令SHOW GRANTS FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>; 查看。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 五.删除用户</span></span><br><span class="line">命令:DROP USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
+  <h5 id="一、centos7以上版本"><a href="#一、centos7以上版本" class="headerlink" title="一、centos7以上版本"></a>一、centos7以上版本</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">1.firewalld的基本使用</span><br><span class="line">启动：  systemctl start firewalld</span><br><span class="line">查状态：systemctl status firewalld </span><br><span class="line">停止：  systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line">禁用：  systemctl stop firewalld</span><br><span class="line">在开机时启用一个服务：systemctl <span class="built_in">enable</span> firewalld.service</span><br><span class="line">在开机时禁用一个服务：systemctl <span class="built_in">disable</span> firewalld.service</span><br><span class="line">查看服务是否开机启动：systemctl is-enabled firewalld.service</span><br><span class="line">查看已启动的服务列表：systemctl list-unit-files|grep enabled</span><br><span class="line">查看启动失败的服务列表：systemctl --failed</span><br><span class="line">2.配置firewalld-cmd</span><br><span class="line">查看版本： firewall-cmd --version</span><br><span class="line">查看帮助： firewall-cmd --<span class="built_in">help</span></span><br><span class="line">显示状态： firewall-cmd --state</span><br><span class="line">查看所有打开的端口： firewall-cmd --zone=public --list-ports</span><br><span class="line">更新防火墙规则： firewall-cmd --reload</span><br><span class="line">查看区域信息:  firewall-cmd --get-active-zones</span><br><span class="line">查看指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0</span><br><span class="line">拒绝所有包：firewall-cmd --panic-on</span><br><span class="line">取消拒绝状态： firewall-cmd --panic-off</span><br><span class="line">查看是否拒绝： firewall-cmd --query-panic</span><br><span class="line">3.那怎么开启一个端口呢</span><br><span class="line">添加</span><br><span class="line">firewall-cmd --zone=public(作用域) --add-port=80/tcp(端口和访问类型) --permanent(永久生效)</span><br><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">firewall-cmd --reload    <span class="comment"># 重新载入，更新防火墙规则</span></span><br><span class="line">firewall-cmd --zone= public --query-port=80/tcp  <span class="comment">#查看</span></span><br><span class="line">firewall-cmd --zone= public --remove-port=80/tcp --permanent  <span class="comment"># 删除</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --list-services</span><br><span class="line">firewall-cmd --get-services</span><br><span class="line">firewall-cmd --add-service=&lt;service&gt;</span><br><span class="line">firewall-cmd --delete-service=&lt;service&gt;</span><br><span class="line">在每次修改端口和服务后/etc/firewalld/zones/public.xml文件就会被修改,所以也可以在文件中之间修改,然后重新加载</span><br><span class="line">使用命令实际也是在修改文件，需要重新加载才能生效。</span><br><span class="line"></span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br><span class="line">firewall-cmd --zone=public --query-port=8080/tcp</span><br><span class="line">firewall-cmd --zone=public --query-port=3306/tcp</span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br><span class="line">firewall-cmd --zone=public --query-port=3306/tcp</span><br><span class="line">firewall-cmd --zone=public --query-port=8080/tcp</span><br><span class="line">firewall-cmd --reload  <span class="comment"># 重新加载后才能生效</span></span><br><span class="line">firewall-cmd --zone=public --query-port=3306/tcp</span><br><span class="line">firewall-cmd --zone=public --query-port=8080/tcp</span><br><span class="line">4.参数解释</span><br><span class="line">–add-service <span class="comment">#添加的服务</span></span><br><span class="line">–zone <span class="comment">#作用域</span></span><br><span class="line">–add-port=80/tcp <span class="comment">#添加端口，格式为：端口/通讯协议</span></span><br><span class="line">–permanent <span class="comment">#永久生效，没有此参数重启后失效</span></span><br><span class="line">5.详细使用</span><br><span class="line">firewall-cmd --permanent --zone=public --add-rich-rule=<span class="string">&#x27;rule family=&quot;ipv4&quot; source address=&quot;192.168.0.4/24&quot; service name=&quot;http&quot; accept&#x27;</span>    //设置某个ip访问某个服务</span><br><span class="line">firewall-cmd --permanent --zone=public --remove-rich-rule=<span class="string">&#x27;rule family=&quot;ipv4&quot; source address=&quot;192.168.0.4/24&quot; service name=&quot;http&quot; accept&#x27;</span> //删除配置</span><br><span class="line">firewall-cmd --permanent --add-rich-rule <span class="string">&#x27;rule family=ipv4 source address=192.168.0.1/2 port port=80 protocol=tcp accept&#x27;</span>     //设置某个ip访问某个端口</span><br><span class="line">firewall-cmd --permanent --remove-rich-rule <span class="string">&#x27;rule family=ipv4 source address=192.168.0.1/2 port port=80 protocol=tcp accept&#x27;</span>     //删除配置</span><br><span class="line"></span><br><span class="line">firewall-cmd --query-masquerade  <span class="comment"># 检查是否允许伪装IP</span></span><br><span class="line">firewall-cmd --add-masquerade    <span class="comment"># 允许防火墙伪装IP</span></span><br><span class="line">firewall-cmd --remove-masquerade <span class="comment"># 禁止防火墙伪装IP</span></span><br><span class="line"></span><br><span class="line">firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080   <span class="comment"># 将80端口的流量转发至8080</span></span><br><span class="line">firewall-cmd --add-forward-port=proto=80:proto=tcp:toaddr=192.168.1.0.1 <span class="comment"># 将80端口的流量转发至192.168.0.1</span></span><br><span class="line">firewall-cmd --add-forward-port=proto=80:proto=tcp:toaddr=192.168.0.1:toport=8080 <span class="comment"># 将80端口的流量转发至192.168.0.1的8080端口</span></span><br></pre></td></tr></table></figure>
+<h5 id="二、centos7以下版本"><a href="#二、centos7以下版本" class="headerlink" title="二、centos7以下版本"></a>二、centos7以下版本</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.开放80，22，8080 端口</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 22 -j ACCEPT</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT</span><br><span class="line">2.保存</span><br><span class="line">/etc/rc.d/init.d/iptables save</span><br><span class="line">3.查看打开的端口</span><br><span class="line">/etc/init.d/iptables status</span><br><span class="line">4.关闭防火墙 </span><br><span class="line">1） 永久性生效，重启后不会复原</span><br><span class="line">开启： chkconfig iptables on</span><br><span class="line">关闭： chkconfig iptables off</span><br><span class="line">2） 即时生效，重启后复原</span><br><span class="line">开启： service iptables start</span><br><span class="line">关闭： service iptables stop</span><br></pre></td></tr></table></figure>
   
   
     
@@ -407,7 +407,7 @@
           <blockquote>
             
               
-                <p>本文永久链接是：<a href=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/>http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/>http://example.com/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/</a></p>
               
             
           </blockquote>
@@ -424,7 +424,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T18:16:09+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T18:07:54+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年11月14日</p>
@@ -436,7 +436,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MySQL/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>MySQL</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/fireawall/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>fireawall</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/centos/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>centos</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div>
 
 
         
@@ -451,7 +451,7 @@
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEY0lEQVR42u3aQXLjMAwEQP//08kLtkQMQKicbd5SsWWxqQMwwufHurI+CMCCtcCCBWuBXYH9hOtf3y/fyOXrP/3u6f0ce4AFCxYsWLBgwYJdhU1v6BSmeuOnB3G6j+r1Yw+wYMGCBQsWLFiwr8BWoaobSwv09IBvPQhgwYIFCxYsWLBgvxu2G0BXg+zTILwKDRYsWLBgwYIFC/b/gu0G0VODE+kACFiwYMGCBQsWLNi/AVst0KsF/1QhXw3Gqwf6+iQMWLBgwYIFCxYs2CPYbkH+1/6OPcCCBQsWLFiwYMGuwHbXaeF+2lB0g+duw9L2AAsWLFiwYMGCBbsC+3TjVYCpjZ/eV/XAqg1D2QksWLBgwYIFCxbsCmwV9HYD0A2gp69T/hssWLBgwYIFCxbsKuxW4T7dUKQHdSsYBwsWLFiwYMGCBbsD2x2IqA5wTA16dO83DfTH3iCABQsWLFiwYMGCHYHtFuhp4T4F2n1QTgEf9wkWLFiwYMGCBQt2BTZdacE/VZh3g+2pBwAsWLBgwYIFCxbsu7DVwvx0w9UBj1vfS+HL+wMLFixYsGDBggW7CntrEKIKNBWATwX15YEVsGDBggULFixYsCuwU0F0NahOB0SqDc30QRw3CGDBggULFixYsGCvwk7dWLeQnw6yu41Guk+wYMGCBQsWLFiwO7CnhX8aFE8F190A+2k/Uw0KWLBgwYIFCxYs2F3YahB8CpgCdH8/DbTTBwosWLBgwYIFCxbsLmw5yA0HMrqF+a1GoTt48vgGASxYsGDBggULFuwV2GnI6oFVN1y9btp4VA8ALFiwYMGCBQsW7LuwaQGeDl6kB5c2HOn/j+8XLFiwYMGCBQsW7CrsVOG8NfCRXudzuOLGASxYsGDBggULFuyrsNUf6A48pBudGhA5fTAefwcsWLBgwYIFCxbsCux04ZwGx90Bj+oBVaGPrwsWLFiwYMGCBQt2BbYadFc3NjVAkQKlQXf8AgAsWLBgwYIFCxbsCmwV+K1BjzQAPy34u58DCxYsWLBgwYIFuwt7e2Cje4DdgYv0wYgbBrBgwYIFCxYsWLArsN0gunsAUxuebhzioB8sWLBgwYIFCxbsCmy1QE8HPG4F07cHl8uNB1iwYMGCBQsWLNgV2DQIPt3w6Ua7EGkj0z04sGDBggULFixYsO/CVgv9FG5qIKP7+U9zHb9BAAsWLFiwYMGCBXsVNl23GonugXc/H+8HLFiwYMGCBQsW7ArsdIGcBs3dQr4aTE8F24+TMGDBggULFixYsGCvwk4FxtVBi1vwp9e53iCABQsWLFiwYMGCXYGdCp6nBi7SA0oHSrqNEViwYMGCBQsWLNjvgK0Gyekgx9T3up979AALFixYsGDBggX71bDdoDkN0G81JutBN1iwYMGCBQsWLNirAxvVDU81AlMHPXXAYMGCBQsWLFiwYN+B3Rp4qB5kdXAjbTCmAnKwYMGCBQsWLFiwO7DW7AILFqwFFixYC+zV9QvOstLnnSHMxQAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEd0lEQVR42u3aS24jMQwFQN//0pP9AI3WIykpDkq7OO6PSl6QD/z8s7asDwKwYC2wYMFaYI/Aforr/+sfH/Tw/bfPV///dt3q/cc8wIIFCxYsWLBgwR6FXS6AX2CrL9y9X/Wg0/+/eoAFCxYsWLBgwYK9AnuqIehuKG04Vp/X9QALFixYsGDBggX7HbDVF0xBdzUe6ffAggULFixYsGDB/g3Y1YK9GjhPDWhUg3KwYMGCBQsWLFiw3wFbLdTTBqJb4Hd/COnnxydhwIIFCxYsWLBgwS7BVgvyv/p32QMsWLBgwYIFCxbsEdjumgqKp4LnauA95gEWLFiwYMGCBQv2COzbi6cbWv28C7p64N0GJ3YCCxYsWLBgwYIFexW2OqCRQnQPIj3oqYbl8XlgwYIFCxYsWLBgr8CmwfZqY1Et4FevSw9qKrgHCxYsWLBgwYIFewd21wukwfl0oN0Nwlcbj8egGyxYsGDBggULFuwV2BSi2xDsbjC6gybLDQxYsGDBggULFizYo7DTgxDpfavXd5/XHTB5bRDAggULFixYsGDBHoXtFtjVILt6AClEdT9x0A0WLFiwYMGCBQt2K2w30O4W5lMDIt0BlDjYBgsWLFiwYMGCBXsFthvsVgcbuoMi7cGKIvjr98GCBQsWLFiwYMH+Ktg0AK82DGngvathqN4HLFiwYMGCBQsW7BnYaiNQbTC6gfbpRiH+QYAFCxYsWLBgwYK9ClstmFcPJG0EpgeEu/eJJ7rBggULFixYsGDBjsKmG57eSBqgVxuMdD/pdWDBggULFixYsGDvwKYBczdI3lWwr+6rG+QvNwhgwYIFCxYsWLBgj8BWC+M0CF8uuIsHvzvIjxsEsGDBggULFixYsKOw3UGMdGO7Gou04K8G+MsNAliwYMGCBQsWLNijsOkDpw6i2zhMvfe2BgEsWLBgwYIFCxbsFtjpB5dfrFi4T0G3A3ewYMGCBQsWLFiwR2DTQYYpuPQ53UC6GrjHQTpYsGDBggULFizYK7DVDXQL9moQfruheQy6wYIFCxYsWLBgwR6BTYF3B87dAZDVgn8qcAcLFixYsGDBggV7FjbdQPrgtNDvDlpMH2x8wGDBggULFixYsGCPwFYL9rTQnhrY2P0+6Q8MLFiwYMGCBQsW7B3YqeC4GjCnAx3lQYpmQ7N8cGDBggULFixYsGCPwrZvWBy8SAcyumvqvo9OYMGCBQsWLFiwYI/CThf8qy+eDmJ0G4XuD+J1H2DBggULFixYsGCPwE4XyGnDUQ3Yu0F39z1fBzbAggULFixYsGDBHoGtFtRT108H4FNwceMCFixYsGDBggUL9gpstSFIC/jpRqB6QOMDIGDBggULFixYsGC/ArY6MJFuOC34U8hqQ7StQQALFixYsGDBggV7BLY6iDH9/DRorwby24NusGDBggULFixYsFsHNnYNalQbkOnvx5+DBQsWLFiwYMGCPQpbHVSYGoSoHsz0wVXfByxYsGDBggULFuxZWGt2gQUL1gILFqwFduv6Af6M0QV4n+FEAAAAAElFTkSuQmCC">
           </div>
         </div>
       
@@ -459,7 +459,7 @@
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
           
-            href="https://t.me/share/url?url=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/&text=【mysql】MySQL创建用户 - timcui's-Blog"
+            href="https://t.me/share/url?url=http://example.com/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/&text=【liunx】centos防火墙 - timcui's-Blog"
           
           >
           
@@ -485,17 +485,18 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【liunx】centos防火墙</p>
-          <p class='content'>一、centos7以上版本123456789101112131415161718192021222324252627282930313233343536373839404142434445464...</p>
+        <a class='prev' href='/2021/01/08/%E3%80%90Linux%E3%80%91%E4%B8%8D%E5%AD%98%E5%9C%A8sudoer/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【linux】不存在sudoer</p>
+          <p class='content'>用户 不在 sudoers 文件中。此事将被报告。
+普通linux用户使用sudo命令执行只有root用户才可以执行的命令时出现了该错误，如下图示：
+
+简单说明一下操作。命令$ ll /etc/...</p>
         </a>
       
       
-        <a class='next' href='/2021/01/08/%E3%80%90Java%E3%80%91%E6%B3%A8%E8%A7%A3/'>
-          <p class='title'>【Java】About 注解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>什么是注解？   我们学习注解的第一步，首先就是先从最基本的开始，看看注解到底是什么？
-
-注解和反射是Java中非常让人容易忽略的东西，但却很重要，在主流的Spring中更是充满了注解，注解和注...</p>
+        <a class='next' href='/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/'>
+          <p class='title'>【mysql】MySQL创建用户<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253...</p>
         </a>
       
     </div>
@@ -528,6 +529,20 @@
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E3%80%81centos7%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC"><span class="toc-text">一、centos7以上版本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E3%80%81centos7%E4%BB%A5%E4%B8%8B%E7%89%88%E6%9C%AC"><span class="toc-text">二、centos7以下版本</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -544,7 +559,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="【mysql】MySQL创建用户";
+  pdata.postTitle="【liunx】centos防火墙";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

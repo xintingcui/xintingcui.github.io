@@ -19,9 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>【mysql】MySQL创建用户 - timcui&#39;s-Blog</title>
+  <title>【HEXO】HEXO操作 - timcui&#39;s-Blog</title>
   
-    <meta name="keywords" content="MySQL">
+    <meta name="keywords" content="hexo">
   
 
   
@@ -335,7 +335,7 @@
     
     
       <h1 class="title">
-        【mysql】MySQL创建用户
+        【HEXO】HEXO操作
       </h1>
       <div class='new-meta-box'>
         
@@ -355,7 +355,7 @@
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Linux/">Linux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/MySQL/">MySQL</a>
+      <a class="category-link" href="/categories/hexo/">hexo</a>
     </a>
   </div>
 
@@ -377,7 +377,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="【mysql】MySQL创建用户" data-path="/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/">
+      <div id="lc-pv" data-title="【HEXO】HEXO操作" data-path="/2021/01/08/%E3%80%90HEXO%E3%80%91HEXO%E6%93%8D%E4%BD%9C/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -394,7 +394,146 @@
 
 
   
-  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 一. 创建用户</span></span><br><span class="line"></span><br><span class="line">命令:CREATE USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">username：你将创建的用户名</span><br><span class="line">host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%</span><br><span class="line">password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</span><br><span class="line">例子：</span><br><span class="line">CREATE USER <span class="string">&#x27;dog&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;192.168.1.101_&#x27;</span> IDENDIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 二. 授权:</span></span><br><span class="line"></span><br><span class="line">命令:GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span></span><br><span class="line">说明:</span><br><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br><span class="line">例子:</span><br><span class="line">GRANT SELECT, INSERT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON maindataplus.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:</span><br><span class="line">GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三.设置与更改用户密码</span></span><br><span class="line"></span><br><span class="line">命令:SET PASSWORD FOR <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> = PASSWORD(<span class="string">&#x27;newpassword&#x27;</span>);</span><br><span class="line"></span><br><span class="line">如果是当前登陆用户用:</span><br><span class="line">SET PASSWORD = PASSWORD(<span class="string">&quot;newpassword&quot;</span>);</span><br><span class="line">例子:</span><br><span class="line">SET PASSWORD FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> = PASSWORD(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 四. 撤销用户权限</span></span><br><span class="line">命令:REVOKE privilege ON databasename.tablename FROM <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br><span class="line">说明:</span><br><span class="line">privilege, databasename, tablename：同授权部分</span><br><span class="line"></span><br><span class="line">例子:</span><br><span class="line">REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">假如你在给用户<span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>授权的时候是这样的（或类似的）：GRANT SELECT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>，则在使用REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令并不能撤销该用户对<span class="built_in">test</span>数据库中user表的SELECT 操作。相反，如果授权使用的是GRANT SELECT ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;则REVOKE SELECT ON test.user FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令也不能撤销该用户对<span class="built_in">test</span>数据库中user表的Select权限。</span><br><span class="line"></span><br><span class="line">具体信息可以用命令SHOW GRANTS FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>; 查看。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 五.删除用户</span></span><br><span class="line">命令:DROP USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
+  <h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<p>新建一个网站。如果没有设置 <code>folder</code> ，Hexo 默认在目前的文件夹建立网站。</p>
+<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>新建一篇文章。如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration">_config.yml</a> 中的 <code>default_layout</code> 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;post title with whitespace&quot;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-p</code>, <code>--path</code></td>
+<td align="left">自定义新文章的路径</td>
+</tr>
+<tr>
+<td align="left"><code>-r</code>, <code>--replace</code></td>
+<td align="left">如果存在同名文章，将其替换</td>
+</tr>
+<tr>
+<td align="left"><code>-s</code>, <code>--slug</code></td>
+<td align="left">文章的 Slug，作为新文章的文件名和发布后的 URL</td>
+</tr>
+</tbody></table>
+<p>默认情况下，Hexo 会使用文章的标题来决定文章文件的路径。对于独立页面来说，Hexo 会创建一个以标题为名字的目录，并在目录中放置一个 <code>index.md</code> 文件。你可以使用 <code>--path</code> 参数来覆盖上述行为、自行决定文件的目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about&#x2F;me &quot;About me&quot;</span><br></pre></td></tr></table></figure>
+<p>以上命令会创建一个 <code>source/about/me.md</code> 文件，同时 Front Matter 中的 title 为 <code>&quot;About me&quot;</code></p>
+<p>注意！title 是必须指定的！如果你这么做并不能达到你的目的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about&#x2F;me</span><br></pre></td></tr></table></figure>
+<p>此时 Hexo 会创建 <code>source/_posts/about/me.md</code>，同时 <code>me.md</code> 的 Front Matter 中的 title 为 <code>&quot;page&quot;</code>。这是因为在上述命令中，hexo-cli 将 <code>page</code> 视为指定文章的标题、并采用默认的 <code>layout</code>。</p>
+<h3 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>生成静态文件。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-d</code>, <code>--deploy</code></td>
+<td align="left">文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td align="left"><code>-w</code>, <code>--watch</code></td>
+<td align="left">监视文件变动</td>
+</tr>
+<tr>
+<td align="left"><code>-b</code>, <code>--bail</code></td>
+<td align="left">生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td align="left"><code>-f</code>, <code>--force</code></td>
+<td align="left">强制重新生成文件 Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。 使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td align="left"><code>-c</code>, <code>--concurrency</code></td>
+<td align="left">最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody></table>
+<p>该命令可以简写为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<p>发表草稿。</p>
+<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>启动服务器。默认情况下，访问网址为： <code>http://localhost:4000/</code>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-p</code>, <code>--port</code></td>
+<td align="left">重设端口</td>
+</tr>
+<tr>
+<td align="left"><code>-s</code>, <code>--static</code></td>
+<td align="left">只使用静态文件</td>
+</tr>
+<tr>
+<td align="left"><code>-l</code>, <code>--log</code></td>
+<td align="left">启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody></table>
+<h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>部署网站。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-g</code>, <code>--generate</code></td>
+<td align="left">部署之前预先生成静态文件</td>
+</tr>
+</tbody></table>
+<p>该命令可以简写为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
+<p>渲染文件。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-o</code>, <code>--output</code></td>
+<td align="left">设置输出路径</td>
+</tr>
+</tbody></table>
+<h3 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo migrate &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<p>从其他博客系统 <a href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</p>
+<h3 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo list &lt;type&gt;</span><br></pre></td></tr></table></figure>
+<p>列出网站资料。</p>
+<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
+<p>显示 Hexo 版本。</p>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --safe</span><br></pre></td></tr></table></figure>
+<p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
+<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --debug</span><br></pre></td></tr></table></figure>
+<p>在终端中显示调试信息并记录到 <code>debug.log</code>。当您碰到问题时，可以尝试用调试模式重新执行一次，并 <a href="https://github.com/hexojs/hexo/issues/new">提交调试信息到 GitHub</a>。</p>
+<h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --silent</span><br></pre></td></tr></table></figure>
+<p>隐藏终端信息。</p>
+<h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 使用 custom.yml 代替默认的 _config.yml</span><br><span class="line">$ hexo server --config custom.yml</span><br><span class="line"></span><br><span class="line"># 使用 custom.yml 和 custom2.json，其中 custom2.json 优先级更高</span><br><span class="line">$ hexo generate --config custom.yml,custom2.json,custom3.yml</span><br></pre></td></tr></table></figure>
+<p>自定义配置文件的路径，指定这个参数后将不再使用默认的 <code>_config.yml</code>。<br>你可以使用一个 YAML 或 JSON 文件的路径，也可以使用逗号分隔（无空格）的多个 YAML 或 JSON 文件的路径。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 使用 custom.yml 代替默认的 _config.yml</span><br><span class="line">$ hexo server --config custom.yml</span><br><span class="line"></span><br><span class="line"># 使用 custom.yml, custom2.json 和 custom3.yml，其中 custom3.yml 优先级最高，其次是 custom2.json</span><br><span class="line">$ hexo generate --config custom.yml,custom2.json,custom3.yml</span><br></pre></td></tr></table></figure>
+<p>当你指定了多个配置文件以后，Hexo 会按顺序将这部分配置文件合并成一个 <code>_multiconfig.yml</code>。如果遇到重复的配置，排在后面的文件的配置会覆盖排在前面的文件的配置。这个原则适用于任意数量、任意深度的 YAML 和 JSON 文件。</p>
+<h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --draft</span><br></pre></td></tr></table></figure>
+<p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+<h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --cwd &#x2F;path&#x2F;to&#x2F;cwd</span><br></pre></td></tr></table></figure>
+<p>自定义当前工作目录（Current working directory）的路径。</p>
 
   
   
@@ -407,7 +546,7 @@
           <blockquote>
             
               
-                <p>本文永久链接是：<a href=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/>http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2021/01/08/%E3%80%90HEXO%E3%80%91HEXO%E6%93%8D%E4%BD%9C/>http://example.com/2021/01/08/%E3%80%90HEXO%E3%80%91HEXO%E6%93%8D%E4%BD%9C/</a></p>
               
             
           </blockquote>
@@ -424,7 +563,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T18:16:09+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T17:41:51+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年11月14日</p>
@@ -436,7 +575,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MySQL/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>MySQL</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>hexo</p></a></div>
 
 
         
@@ -451,7 +590,7 @@
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEY0lEQVR42u3aQXLjMAwEQP//08kLtkQMQKicbd5SsWWxqQMwwufHurI+CMCCtcCCBWuBXYH9hOtf3y/fyOXrP/3u6f0ce4AFCxYsWLBgwYJdhU1v6BSmeuOnB3G6j+r1Yw+wYMGCBQsWLFiwr8BWoaobSwv09IBvPQhgwYIFCxYsWLBgvxu2G0BXg+zTILwKDRYsWLBgwYIFC/b/gu0G0VODE+kACFiwYMGCBQsWLNi/AVst0KsF/1QhXw3Gqwf6+iQMWLBgwYIFCxYs2CPYbkH+1/6OPcCCBQsWLFiwYMGuwHbXaeF+2lB0g+duw9L2AAsWLFiwYMGCBbsC+3TjVYCpjZ/eV/XAqg1D2QksWLBgwYIFCxbsCmwV9HYD0A2gp69T/hssWLBgwYIFCxbsKuxW4T7dUKQHdSsYBwsWLFiwYMGCBbsD2x2IqA5wTA16dO83DfTH3iCABQsWLFiwYMGCHYHtFuhp4T4F2n1QTgEf9wkWLFiwYMGCBQt2BTZdacE/VZh3g+2pBwAsWLBgwYIFCxbsu7DVwvx0w9UBj1vfS+HL+wMLFixYsGDBggW7CntrEKIKNBWATwX15YEVsGDBggULFixYsCuwU0F0NahOB0SqDc30QRw3CGDBggULFixYsGCvwk7dWLeQnw6yu41Guk+wYMGCBQsWLFiwO7CnhX8aFE8F190A+2k/Uw0KWLBgwYIFCxYs2F3YahB8CpgCdH8/DbTTBwosWLBgwYIFCxbsLmw5yA0HMrqF+a1GoTt48vgGASxYsGDBggULFuwV2GnI6oFVN1y9btp4VA8ALFiwYMGCBQsW7LuwaQGeDl6kB5c2HOn/j+8XLFiwYMGCBQsW7CrsVOG8NfCRXudzuOLGASxYsGDBggULFuyrsNUf6A48pBudGhA5fTAefwcsWLBgwYIFCxbsCux04ZwGx90Bj+oBVaGPrwsWLFiwYMGCBQt2BbYadFc3NjVAkQKlQXf8AgAsWLBgwYIFCxbsCmwV+K1BjzQAPy34u58DCxYsWLBgwYIFuwt7e2Cje4DdgYv0wYgbBrBgwYIFCxYsWLArsN0gunsAUxuebhzioB8sWLBgwYIFCxbsCmy1QE8HPG4F07cHl8uNB1iwYMGCBQsWLNgV2DQIPt3w6Ua7EGkj0z04sGDBggULFixYsO/CVgv9FG5qIKP7+U9zHb9BAAsWLFiwYMGCBXsVNl23GonugXc/H+8HLFiwYMGCBQsW7ArsdIGcBs3dQr4aTE8F24+TMGDBggULFixYsGCvwk4FxtVBi1vwp9e53iCABQsWLFiwYMGCXYGdCp6nBi7SA0oHSrqNEViwYMGCBQsWLNjvgK0Gyekgx9T3up979AALFixYsGDBggX71bDdoDkN0G81JutBN1iwYMGCBQsWLNirAxvVDU81AlMHPXXAYMGCBQsWLFiwYN+B3Rp4qB5kdXAjbTCmAnKwYMGCBQsWLFiwO7DW7AILFqwFFixYC+zV9QvOstLnnSHMxQAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEcElEQVR42u3aQbLbQAgFQN//0skBUi7BgxnlJz07y5aEerQAzOeXdWR9EIAFa4EFC9YCewX2E64/Lvjw/bffP8XxdP6331ePV7+veoAFCxYsWLBgwYK9C1tOgIsPvP378QM/XHfLAyxYsGDBggULFuw7sGmA04KhWyic3sDUAyxYsGDBggULFuzPgi3fODw/bUhXnxMsWLBgwYIFCxbs/w07ffD1AYphoQEWLFiwYMGCBQv2Z8C2BxSagaTw00Q/LWhem4QBCxYsWLBgwYIFW4KdJuD/2ufYAyxYsGDBggULFuwV2K2VFganjz/Fs+4AFixYsGDBggUL9grs39ZQ3mqMp432tOENFixYsGDBggUL9h3YdIAiLRCqn7tQ0/OmhQdYsGDBggULFizYu7DdxLmaQG83sJ/usxVP+qKBBQsWLFiwYMGCvQPbTeC753ULgq2G9q1C5WuBABYsWLBgwYIFC/Yq7DZMOkDRHdi4tdGP8GDBggULFixYsGCvwHYHM+IbDmHTRny6Yb+Kqz0JAxYsWLBgwYIFC3YFthtQNSHvHt9qSE/v140fLFiwYMGCBQsW7Luw08GFUw3mtIGent99Qcr/IIAFCxYsWLBgwYI9ArtVCHQb1dsQ0/iqkOVJGLBgwYIFCxYsWLBXYNOBjfSB09Ud1DhVILT/QQALFixYsGDBggW7Cntq0KIb8K3Bj2nhAhYsWLBgwYIFC/bvgK0m1OlGpI3t7oZ1407j/Xo+WLBgwYIFCxYs2CuwaQKfJtzdRnV6/SrU9PnAggULFixYsGDBvgObJuLdRvD2wET3etuFztf7gwULFixYsGDBgr0CO02gp43l7Yb7ViP7U1ztygssWLBgwYIFCxbsCuy0gTwtFLoJ+XQjpi/MowtYsGDBggULFizYq7C3BiS2ALuDIVuN+sfjYMGCBQsWLFiwYK/CVm+UwkwLhxQuHSRJXcCCBQsWLFiwYMG+C9ttCKcN8C5QdcNPFRCP4GDBggULFixYsGCvwE4bvWnDegsgjS8tFMoFAliwYMGCBQsWLNgrsGnC3T0/hUwLj61CIS4QwIIFCxYsWLBgwR6B3QZLG9HVAYnuRnRXGbA6sAEWLFiwYMGCBQv2COxWQ7rb6J5CpQVIdyPbhQtYsGDBggULFizYK7DTgKaJfzfBn15/q9ABCxYsWLBgwYIF+y7sNEFPN6JaIEzj2WqQl58LLFiwYMGCBQsW7BXY6ZoORDwF3t3QrYKlu8FgwYIFCxYsWLBg78J+wnVqA7qN6WkDvvv58fpgwYIFCxYsWLBgr8JOA+tCdTds2rg+fV+wYMGCBQsWLFiw78Kmifv0vPT46Rej3QgHCxYsWLBgwYIF+yNgp4GcajhX402PgwULFixYsGDBgv3ZsOlARToIksa1PRDyNQ6wYMGCBQsWLFiwr8BOb9RNuLuFSHWDpg3tuNABCxYsWLBgwYIFexW2u7YT7a2N6xY6288NFixYsGDBggUL9g6stbvAggVrgQUL1gJ7dP0GbVBVSbXzNqQAAAAASUVORK5CYII=">
           </div>
         </div>
       
@@ -459,7 +598,7 @@
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
           
-            href="https://t.me/share/url?url=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/&text=【mysql】MySQL创建用户 - timcui's-Blog"
+            href="https://t.me/share/url?url=http://example.com/2021/01/08/%E3%80%90HEXO%E3%80%91HEXO%E6%93%8D%E4%BD%9C/&text=【HEXO】HEXO操作 - timcui's-Blog"
           
           >
           
@@ -485,18 +624,13 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【liunx】centos防火墙</p>
-          <p class='content'>一、centos7以上版本123456789101112131415161718192021222324252627282930313233343536373839404142434445464...</p>
-        </a>
-      
-      
-        <a class='next' href='/2021/01/08/%E3%80%90Java%E3%80%91%E6%B3%A8%E8%A7%A3/'>
-          <p class='title'>【Java】About 注解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='prev' href='/2021/01/08/%E3%80%90Java%E3%80%91%E6%B3%A8%E8%A7%A3/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【Java】About 注解</p>
           <p class='content'>什么是注解？   我们学习注解的第一步，首先就是先从最基本的开始，看看注解到底是什么？
 
 注解和反射是Java中非常让人容易忽略的东西，但却很重要，在主流的Spring中更是充满了注解，注解和注...</p>
         </a>
+      
       
     </div>
   
@@ -528,6 +662,20 @@
 
 
 
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#init"><span class="toc-text">init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new"><span class="toc-text">new</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generate"><span class="toc-text">generate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#publish"><span class="toc-text">publish</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server"><span class="toc-text">server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deploy"><span class="toc-text">deploy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#render"><span class="toc-text">render</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#migrate"><span class="toc-text">migrate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clean"><span class="toc-text">clean</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-text">list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#version"><span class="toc-text">version</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E9%A1%B9"><span class="toc-text">选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%A8%A1%E5%BC%8F"><span class="toc-text">安全模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F"><span class="toc-text">调试模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E6%B4%81%E6%A8%A1%E5%BC%8F"><span class="toc-text">简洁模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-text">自定义配置文件的路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%8D%89%E7%A8%BF"><span class="toc-text">显示草稿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-CWD"><span class="toc-text">自定义 CWD</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
@@ -544,7 +692,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="【mysql】MySQL创建用户";
+  pdata.postTitle="【HEXO】HEXO操作";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

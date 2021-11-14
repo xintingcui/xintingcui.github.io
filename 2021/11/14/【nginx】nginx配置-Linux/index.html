@@ -19,9 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>【mysql】MySQL创建用户 - timcui&#39;s-Blog</title>
+  <title>【nginx】nginx配置-Linux - timcui&#39;s-Blog</title>
   
-    <meta name="keywords" content="MySQL">
+    <meta name="keywords" content="Linux,nginx">
   
 
   
@@ -335,7 +335,7 @@
     
     
       <h1 class="title">
-        【mysql】MySQL创建用户
+        【nginx】nginx配置-Linux
       </h1>
       <div class='new-meta-box'>
         
@@ -355,7 +355,7 @@
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Linux/">Linux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/MySQL/">MySQL</a>
+      <a class="category-link" href="/categories/nginx/">nginx</a>
     </a>
   </div>
 
@@ -366,7 +366,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年1月8日</p>
+    <p>发布于：2021年11月14日</p>
   </a>
 </div>
 
@@ -377,7 +377,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="【mysql】MySQL创建用户" data-path="/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/">
+      <div id="lc-pv" data-title="【nginx】nginx配置-Linux" data-path="/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Linux/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -394,8 +394,7 @@
 
 
   
-  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 一. 创建用户</span></span><br><span class="line"></span><br><span class="line">命令:CREATE USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">username：你将创建的用户名</span><br><span class="line">host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%</span><br><span class="line">password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</span><br><span class="line">例子：</span><br><span class="line">CREATE USER <span class="string">&#x27;dog&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;192.168.1.101_&#x27;</span> IDENDIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 二. 授权:</span></span><br><span class="line"></span><br><span class="line">命令:GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span></span><br><span class="line">说明:</span><br><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br><span class="line">例子:</span><br><span class="line">GRANT SELECT, INSERT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON maindataplus.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:</span><br><span class="line">GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三.设置与更改用户密码</span></span><br><span class="line"></span><br><span class="line">命令:SET PASSWORD FOR <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> = PASSWORD(<span class="string">&#x27;newpassword&#x27;</span>);</span><br><span class="line"></span><br><span class="line">如果是当前登陆用户用:</span><br><span class="line">SET PASSWORD = PASSWORD(<span class="string">&quot;newpassword&quot;</span>);</span><br><span class="line">例子:</span><br><span class="line">SET PASSWORD FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> = PASSWORD(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 四. 撤销用户权限</span></span><br><span class="line">命令:REVOKE privilege ON databasename.tablename FROM <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br><span class="line">说明:</span><br><span class="line">privilege, databasename, tablename：同授权部分</span><br><span class="line"></span><br><span class="line">例子:</span><br><span class="line">REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">假如你在给用户<span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>授权的时候是这样的（或类似的）：GRANT SELECT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>，则在使用REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令并不能撤销该用户对<span class="built_in">test</span>数据库中user表的SELECT 操作。相反，如果授权使用的是GRANT SELECT ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;则REVOKE SELECT ON test.user FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令也不能撤销该用户对<span class="built_in">test</span>数据库中user表的Select权限。</span><br><span class="line"></span><br><span class="line">具体信息可以用命令SHOW GRANTS FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>; 查看。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 五.删除用户</span></span><br><span class="line">命令:DROP USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
+  
   
   
     
@@ -407,7 +406,7 @@
           <blockquote>
             
               
-                <p>本文永久链接是：<a href=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/>http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Linux/>http://example.com/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Linux/</a></p>
               
             
           </blockquote>
@@ -424,7 +423,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T18:16:09+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T18:10:15+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年11月14日</p>
@@ -436,7 +435,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MySQL/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>MySQL</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/nginx/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>nginx</p></a></div>
 
 
         
@@ -451,7 +450,7 @@
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEY0lEQVR42u3aQXLjMAwEQP//08kLtkQMQKicbd5SsWWxqQMwwufHurI+CMCCtcCCBWuBXYH9hOtf3y/fyOXrP/3u6f0ce4AFCxYsWLBgwYJdhU1v6BSmeuOnB3G6j+r1Yw+wYMGCBQsWLFiwr8BWoaobSwv09IBvPQhgwYIFCxYsWLBgvxu2G0BXg+zTILwKDRYsWLBgwYIFC/b/gu0G0VODE+kACFiwYMGCBQsWLNi/AVst0KsF/1QhXw3Gqwf6+iQMWLBgwYIFCxYs2CPYbkH+1/6OPcCCBQsWLFiwYMGuwHbXaeF+2lB0g+duw9L2AAsWLFiwYMGCBbsC+3TjVYCpjZ/eV/XAqg1D2QksWLBgwYIFCxbsCmwV9HYD0A2gp69T/hssWLBgwYIFCxbsKuxW4T7dUKQHdSsYBwsWLFiwYMGCBbsD2x2IqA5wTA16dO83DfTH3iCABQsWLFiwYMGCHYHtFuhp4T4F2n1QTgEf9wkWLFiwYMGCBQt2BTZdacE/VZh3g+2pBwAsWLBgwYIFCxbsu7DVwvx0w9UBj1vfS+HL+wMLFixYsGDBggW7CntrEKIKNBWATwX15YEVsGDBggULFixYsCuwU0F0NahOB0SqDc30QRw3CGDBggULFixYsGCvwk7dWLeQnw6yu41Guk+wYMGCBQsWLFiwO7CnhX8aFE8F190A+2k/Uw0KWLBgwYIFCxYs2F3YahB8CpgCdH8/DbTTBwosWLBgwYIFCxbsLmw5yA0HMrqF+a1GoTt48vgGASxYsGDBggULFuwV2GnI6oFVN1y9btp4VA8ALFiwYMGCBQsW7LuwaQGeDl6kB5c2HOn/j+8XLFiwYMGCBQsW7CrsVOG8NfCRXudzuOLGASxYsGDBggULFuyrsNUf6A48pBudGhA5fTAefwcsWLBgwYIFCxbsCux04ZwGx90Bj+oBVaGPrwsWLFiwYMGCBQt2BbYadFc3NjVAkQKlQXf8AgAsWLBgwYIFCxbsCmwV+K1BjzQAPy34u58DCxYsWLBgwYIFuwt7e2Cje4DdgYv0wYgbBrBgwYIFCxYsWLArsN0gunsAUxuebhzioB8sWLBgwYIFCxbsCmy1QE8HPG4F07cHl8uNB1iwYMGCBQsWLNgV2DQIPt3w6Ua7EGkj0z04sGDBggULFixYsO/CVgv9FG5qIKP7+U9zHb9BAAsWLFiwYMGCBXsVNl23GonugXc/H+8HLFiwYMGCBQsW7ArsdIGcBs3dQr4aTE8F24+TMGDBggULFixYsGCvwk4FxtVBi1vwp9e53iCABQsWLFiwYMGCXYGdCp6nBi7SA0oHSrqNEViwYMGCBQsWLNjvgK0Gyekgx9T3up979AALFixYsGDBggX71bDdoDkN0G81JutBN1iwYMGCBQsWLNirAxvVDU81AlMHPXXAYMGCBQsWLFiwYN+B3Rp4qB5kdXAjbTCmAnKwYMGCBQsWLFiwO7DW7AILFqwFFixYC+zV9QvOstLnnSHMxQAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEbElEQVR42u3aQXLcMAwEwP3/p5N7Ui4BA4jSupo3ey2KbO6BgOfzx7hlfBCABWuABQvWAHsE9hOOf5//ab6rv/tvYRfP//R59z3V9bc9wIIFCxYsWLBgwR6FLV+Aww1XF95dV/p31YNpzwsWLFiwYMGCBQv2EdhpQVB9/q55ugVIuj+wYMGCBQsWLFiw3w07fa5aSEwb2dNCAixYsGDBggULFuzvgp02uNMDSgMbX1t5gQULFixYsGDBgl0NbEwDGdOL+12BkseTMGDBggULFixYsGBLsN3RvZB/28+xB1iwYMGCBQsWLNgjsNujWgikQYu0MEgLhvb+wYIFCxYsWLBgwR6B7QYn0sJha8NbB9T9vLpOsGDBggULFixYsGdhpw3h6sFUAxIpyBSyu77LAgEsWLBgwYIFCxbsLbDVgiAtKLoFR/Wiv/1FSN8DFixYsGDBggUL9hnYNBAxveh3Fzy+uC8FQC7nAwsWLFiwYMGCBXsUdgrcbRxvByiqB5AWMuX5wYIFCxYsWLBgwT4C291QGpxIgxd3BTzShjxYsGDBggULFizYZ2C7jeV0gVOIFCA9sHGBABYsWLBgwYIFC/ZW2K2L+VZQY2vD3cb3NOABFixYsGDBggUL9lnYaWN768C2Pq8WHul7ygUCWLBgwYIFCxYs2FXYbnBjusBpMGJaIHQPrF0wgQULFixYsGDBgj0K24XYaiRPD7Z7UNOgyGXBAxYsWLBgwYIFC/YIbBqISAuC9AK/1fBOocuFA1iwYMGCBQsWLNgjsOWL7/YCmhf07kU9/TydByxYsGDBggULFuw7YKcN7G4jenuerUBGu7ABCxYsWLBgwYIFewT2akFbEGkhkF7s16C6BwYWLFiwYMGCBQv2lbBVmOqBbAUu0mDJdL3tJAxYsGDBggULFizYFdi08XvqYr/dcJ8WNO3/IIAFCxYsWLBgwYK9FXYLIIXpBkXuOri0MAILFixYsGDBggV7FnZroXFjeAi9dQDpFwYsWLBgwYIFCxbsu2G3AhTpvNOAR/f38RcILFiwYMGCBQsW7COwW9Dbje0uYBrkSOcDCxYsWLBgwYIF+yzsdOIpULeBnb5/2uCPKy+wYMGCBQsWLFiwt8K+pbGdHnz6RUnXBxYsWLBgwYIFC/ZdsNUNTwuKrYJhWsCk+wULFixYsGDBggX7btjui+8KgnQP6nPzAAsWLFiwYMGCBXsWdjpS4LRxns47fV/ZAyxYsGDBggULFuwR2PGFuBmoSBvdaSBje91xoxssWLBgwYIFCxbsLbBbG+xe0LcCHd3CYuu5y/8ggAULFixYsGDBgj0CW71YT2HTAmC6rtsLI7BgwYIFCxYsWLBfBbsVhEgb5luN7e7BlBvdYMGCBQsWLFiwYF8Fuw2cXtSnDfNpoAMsWLBgwYIFCxbss7BbwYg0cJEGKLbWMy6YwIIFCxYsWLBgwR6F3QouTAMd2weSFijxwYAFCxYsWLBgwYI9AmvsDrBgwRpgwYI1wN46/gIi0VNnPIkrIgAAAABJRU5ErkJggg==">
           </div>
         </div>
       
@@ -459,7 +458,7 @@
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
           
-            href="https://t.me/share/url?url=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/&text=【mysql】MySQL创建用户 - timcui's-Blog"
+            href="https://t.me/share/url?url=http://example.com/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Linux/&text=【nginx】nginx配置-Linux - timcui's-Blog"
           
           >
           
@@ -485,17 +484,10 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【liunx】centos防火墙</p>
-          <p class='content'>一、centos7以上版本123456789101112131415161718192021222324252627282930313233343536373839404142434445464...</p>
-        </a>
       
-      
-        <a class='next' href='/2021/01/08/%E3%80%90Java%E3%80%91%E6%B3%A8%E8%A7%A3/'>
-          <p class='title'>【Java】About 注解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>什么是注解？   我们学习注解的第一步，首先就是先从最基本的开始，看看注解到底是什么？
-
-注解和反射是Java中非常让人容易忽略的东西，但却很重要，在主流的Spring中更是充满了注解，注解和注...</p>
+        <a class='next' href='/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Windows/'>
+          <p class='title'>【nginx】nginx配置-Windows<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'></p>
         </a>
       
     </div>
@@ -544,7 +536,7 @@
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="【mysql】MySQL创建用户";
+  pdata.postTitle="【nginx】nginx配置-Linux";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

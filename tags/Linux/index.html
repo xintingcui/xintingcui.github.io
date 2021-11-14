@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -19,9 +21,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>【mysql】MySQL创建用户 - timcui&#39;s-Blog</title>
-  
-    <meta name="keywords" content="MySQL">
+  <title>标签：Linux - timcui&#39;s-Blog</title>
   
 
   
@@ -277,7 +277,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper  dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -324,201 +324,171 @@
       <div class='body-wrapper' id="pjax-container">
         
 
+
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        【mysql】MySQL创建用户
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="https://www.github.com" rel="nofollow">
-    <img no-lazy src="">
-    <p>timcui</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Linux/">Linux</a><span class="sep"></span><a class="category-link" href="/categories/Linux/MySQL/">MySQL</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021年1月8日</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="【mysql】MySQL创建用户" data-path="/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Linux/">
+        【nginx】nginx配置-Linux
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-11-14</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/nginx/">nginx</a>
         
       </div>
-    
-  </div>
-
-
-  
-  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 一. 创建用户</span></span><br><span class="line"></span><br><span class="line">命令:CREATE USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">username：你将创建的用户名</span><br><span class="line">host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符%</span><br><span class="line">password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</span><br><span class="line">例子：</span><br><span class="line">CREATE USER <span class="string">&#x27;dog&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;192.168.1.101_&#x27;</span> IDENDIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 二. 授权:</span></span><br><span class="line"></span><br><span class="line">命令:GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span></span><br><span class="line">说明:</span><br><span class="line">privileges：用户的操作权限，如SELECT，INSERT，UPDATE等，如果要授予所的权限则使用ALL</span><br><span class="line">databasename：数据库名</span><br><span class="line">tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用*表示，如*.*</span><br><span class="line">例子:</span><br><span class="line">GRANT SELECT, INSERT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">GRANT ALL ON maindataplus.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">用以上命令授权的用户不能给其它用户授权，如果想让该用户可以授权，用以下命令:</span><br><span class="line">GRANT privileges ON databasename.tablename TO <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三.设置与更改用户密码</span></span><br><span class="line"></span><br><span class="line">命令:SET PASSWORD FOR <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> = PASSWORD(<span class="string">&#x27;newpassword&#x27;</span>);</span><br><span class="line"></span><br><span class="line">如果是当前登陆用户用:</span><br><span class="line">SET PASSWORD = PASSWORD(<span class="string">&quot;newpassword&quot;</span>);</span><br><span class="line">例子:</span><br><span class="line">SET PASSWORD FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span> = PASSWORD(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 四. 撤销用户权限</span></span><br><span class="line">命令:REVOKE privilege ON databasename.tablename FROM <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br><span class="line">说明:</span><br><span class="line">privilege, databasename, tablename：同授权部分</span><br><span class="line"></span><br><span class="line">例子:</span><br><span class="line">REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">注意:</span><br><span class="line">假如你在给用户<span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>授权的时候是这样的（或类似的）：GRANT SELECT ON test.user TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>，则在使用REVOKE SELECT ON *.* FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令并不能撤销该用户对<span class="built_in">test</span>数据库中user表的SELECT 操作。相反，如果授权使用的是GRANT SELECT ON *.* TO <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;则REVOKE SELECT ON test.user FROM <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;命令也不能撤销该用户对<span class="built_in">test</span>数据库中user表的Select权限。</span><br><span class="line"></span><br><span class="line">具体信息可以用命令SHOW GRANTS FOR <span class="string">&#x27;pig&#x27;</span>@<span class="string">&#x27;%&#x27;</span>; 查看。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 五.删除用户</span></span><br><span class="line">命令:DROP USER <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-  
-  
-    
-    <div class='footer'>
       
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>本文永久链接是：<a href=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/>http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</a></p>
-              
-            
-          </blockquote>
+        <div>
+          <a class='readmore' href='/2021/11/14/%E3%80%90nginx%E3%80%91nginx%E9%85%8D%E7%BD%AE-Linux/'>
+            阅读全文
+          </a>
         </div>
-      
       
     </div>
   
-  
-    
 
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-14T18:16:09+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年11月14日</p>
-  </a>
 </div>
 
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MySQL/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>MySQL</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        
-        <div class='hoverbox'>
-          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,666"></a>
-          <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEY0lEQVR42u3aQXLjMAwEQP//08kLtkQMQKicbd5SsWWxqQMwwufHurI+CMCCtcCCBWuBXYH9hOtf3y/fyOXrP/3u6f0ce4AFCxYsWLBgwYJdhU1v6BSmeuOnB3G6j+r1Yw+wYMGCBQsWLFiwr8BWoaobSwv09IBvPQhgwYIFCxYsWLBgvxu2G0BXg+zTILwKDRYsWLBgwYIFC/b/gu0G0VODE+kACFiwYMGCBQsWLNi/AVst0KsF/1QhXw3Gqwf6+iQMWLBgwYIFCxYs2CPYbkH+1/6OPcCCBQsWLFiwYMGuwHbXaeF+2lB0g+duw9L2AAsWLFiwYMGCBbsC+3TjVYCpjZ/eV/XAqg1D2QksWLBgwYIFCxbsCmwV9HYD0A2gp69T/hssWLBgwYIFCxbsKuxW4T7dUKQHdSsYBwsWLFiwYMGCBbsD2x2IqA5wTA16dO83DfTH3iCABQsWLFiwYMGCHYHtFuhp4T4F2n1QTgEf9wkWLFiwYMGCBQt2BTZdacE/VZh3g+2pBwAsWLBgwYIFCxbsu7DVwvx0w9UBj1vfS+HL+wMLFixYsGDBggW7CntrEKIKNBWATwX15YEVsGDBggULFixYsCuwU0F0NahOB0SqDc30QRw3CGDBggULFixYsGCvwk7dWLeQnw6yu41Guk+wYMGCBQsWLFiwO7CnhX8aFE8F190A+2k/Uw0KWLBgwYIFCxYs2F3YahB8CpgCdH8/DbTTBwosWLBgwYIFCxbsLmw5yA0HMrqF+a1GoTt48vgGASxYsGDBggULFuwV2GnI6oFVN1y9btp4VA8ALFiwYMGCBQsW7LuwaQGeDl6kB5c2HOn/j+8XLFiwYMGCBQsW7CrsVOG8NfCRXudzuOLGASxYsGDBggULFuyrsNUf6A48pBudGhA5fTAefwcsWLBgwYIFCxbsCux04ZwGx90Bj+oBVaGPrwsWLFiwYMGCBQt2BbYadFc3NjVAkQKlQXf8AgAsWLBgwYIFCxbsCmwV+K1BjzQAPy34u58DCxYsWLBgwYIFuwt7e2Cje4DdgYv0wYgbBrBgwYIFCxYsWLArsN0gunsAUxuebhzioB8sWLBgwYIFCxbsCmy1QE8HPG4F07cHl8uNB1iwYMGCBQsWLNgV2DQIPt3w6Ua7EGkj0z04sGDBggULFixYsO/CVgv9FG5qIKP7+U9zHb9BAAsWLFiwYMGCBXsVNl23GonugXc/H+8HLFiwYMGCBQsW7ArsdIGcBs3dQr4aTE8F24+TMGDBggULFixYsGCvwk4FxtVBi1vwp9e53iCABQsWLFiwYMGCXYGdCp6nBi7SA0oHSrqNEViwYMGCBQsWLNjvgK0Gyekgx9T3up979AALFixYsGDBggX71bDdoDkN0G81JutBN1iwYMGCBQsWLNirAxvVDU81AlMHPXXAYMGCBQsWLFiwYN+B3Rp4qB5kdXAjbTCmAnKwYMGCBQsWLFiwO7DW7AILFqwFFixYC+zV9QvOstLnnSHMxQAAAABJRU5ErkJggg==">
           </div>
-        </div>
-      
-    
-      
-        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer"
-          
-            href="https://t.me/share/url?url=http://example.com/2021/01/08/%E3%80%90MySQL%E3%80%91MySQL%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/&text=【mysql】MySQL创建用户 - timcui's-Blog"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/png;base64,666">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
         
       
-    </div>
-  </div>
-
-
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
   
   
-
   
-    <div class="prev-next">
-      
-        <a class='prev' href='/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>【liunx】centos防火墙</p>
-          <p class='content'>一、centos7以上版本123456789101112131415161718192021222324252627282930313233343536373839404142434445464...</p>
-        </a>
-      
-      
-        <a class='next' href='/2021/01/08/%E3%80%90Java%E3%80%91%E6%B3%A8%E8%A7%A3/'>
-          <p class='title'>【Java】About 注解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>什么是注解？   我们学习注解的第一步，首先就是先从最基本的开始，看看注解到底是什么？
-
-注解和反射是Java中非常让人容易忽略的东西，但却很重要，在主流的Spring中更是充满了注解，注解和注...</p>
-        </a>
-      
-    </div>
   
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+    <h2 class="article-title" >
+      <a href="/2021/01/08/%E3%80%90Linux%E3%80%91%E4%B8%8D%E5%AD%98%E5%9C%A8sudoer/">
+        【linux】不存在sudoer
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        用户 不在 sudoers 文件中。此事将被报告。
+普通linux用户使用sudo命令执行只有root用户才可以执行的命令时出现了该错误，如下图示：
+
+简单说明一下操作。命令$ ll /etc/sudoers表示查看文件的属性，属性包括有：文件拥有者、文件所属组以及其他用户组对该文件拥有的读写权限和文件的类型等，上图的/etc/sudoers文件表示拥有者和所属组都是root且只能读取，其他...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-01-08</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Linux/">Linux</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/01/08/%E3%80%90Linux%E3%80%91%E4%B8%8D%E5%AD%98%E5%9C%A8sudoer/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
 </div>
 
-  </article>
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/">
+        【liunx】centos防火墙
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        一、centos7以上版本123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263641.firewalld的基本使用启动：  systemctl start firewalld查状态：systemctl statu...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-01-08</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Linux/">Linux</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/01/08/%E3%80%90Linux%E3%80%91centos%E9%98%B2%E7%81%AB%E5%A2%99/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
 
 
-
-
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -526,14 +496,128 @@
     
     
 
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">timcui's-Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/xintingcui@outlook.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/xintingcui"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
 
 
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Java/" href="/categories/Java/"
+            id="categoriesJava"
+            ><div class='name'>Java</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Linux/" href="/categories/Linux/"
+            id="categoriesLinux"
+            ><div class='name'>Linux</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Linux/MySQL/" href="/categories/Linux/MySQL/"
+            id="categoriesLinuxMySQL"
+            ><div class='name'>MySQL</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/hexo/" href="/categories/hexo/"
+            id="categorieshexo"
+            ><div class='name'>hexo</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/nginx/" href="/categories/nginx/"
+            id="categoriesnginx"
+            ><div class='name'>nginx</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/CentOS/" style="font-size: 14px; color: #999">CentOS</a> <a href="/tags/Linux/" style="font-size: 24px; color: #555">Linux</a> <a href="/tags/MySQL/" style="font-size: 19px; color: #777">MySQL</a> <a href="/tags/auther/" style="font-size: 14px; color: #999">auther</a> <a href="/tags/centos/" style="font-size: 14px; color: #999">centos</a> <a href="/tags/fireawall/" style="font-size: 14px; color: #999">fireawall</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/nginx/" style="font-size: 19px; color: #777">nginx</a> <a href="/tags/sudoer/" style="font-size: 14px; color: #999">sudoer</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a>
+    </div>
+  </section>
+
+
+  
 
   
 
 
 </aside>
-
 
 
         
@@ -543,8 +627,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="【mysql】MySQL创建用户";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
